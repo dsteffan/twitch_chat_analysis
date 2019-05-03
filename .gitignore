@@ -1,7 +1,8 @@
-data/chat_test.log
+chat_test.log
 code/__pycache__
 twitch_chat_scrape_testing.ipynb
 code/.vscode/
 code/.ipynb_checkpoints/ data/.ipynb_checkpoints/
 code/.ipynb_checkpoints/ data/.ipynb_checkpoints/
 code/.ipynb_checkpoints/
+
