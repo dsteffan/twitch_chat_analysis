@@ -57560,3 +57560,7 @@
 2019-05-03_08:35:08 ;;; -> code[replace] old[1:2] new[1:1]
 2019-05-03_08:35:08 ;;; parse_part from 1 to 1 (to 0 in part parser)
 2019-05-03_08:35:08 ;;; diff parser end
+2019-05-03_08:45:37 ;;; Invalid alias: The name clear can't be aliased because it is another magic command.
+2019-05-03_08:45:37 ;;; Invalid alias: The name more can't be aliased because it is another magic command.
+2019-05-03_08:45:37 ;;; Invalid alias: The name less can't be aliased because it is another magic command.
+2019-05-03_08:45:37 ;;; Invalid alias: The name man can't be aliased because it is another magic command.
