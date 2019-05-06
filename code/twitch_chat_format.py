@@ -128,19 +128,13 @@ def messages_per_second(df):
     print(f"Processing {total} minutes of chat messages...")
 
     for sec in date_range:
-        
-        try:
-            # Double brackets around .loc forces it to return a dataframe.            
-            # Append the length of the dataframe, i.e. number of messages.
-            mes_per_sec.append(df.loc[[str(sec)]].shape[0])
-        
-        # If the key is not found, then there are no messages for that second
-        except KeyError:
-            mes_per_sec.append(0)
+                 
+        # Append the length of the dataframe, i.e. number of messages.
+        mes_per_sec.append(df[df.index == sec].shape[0])
 
         # Print out a checkpoint for every ten minutes of messages
         delta = sec - date_range.min()
-        if delta.seconds % 600 == 0 and delta.seconds != 0:
+        if delta.seconds % 1200 == 0 and delta.seconds != 0:
             print(f"{delta.components.hours * 60 + delta.components.minutes}",
                   f"out of {total} minutes of messages processed.")
 
