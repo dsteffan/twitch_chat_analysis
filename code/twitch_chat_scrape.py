@@ -27,7 +27,7 @@ def twitch_chat_scrape(nickname, token, channel, minutes, path = "./chat.log", n
 
     # nickname
     # This is the nickname that your request will use. It is 
-    # reccommended that you use the same name as your twitch account.
+    # recommended that you use the same name as your twitch account.
     
     # token
     # This is the authorization token required to stream messages 
@@ -95,8 +95,6 @@ def twitch_chat_scrape(nickname, token, channel, minutes, path = "./chat.log", n
     # Additionally, the Twitch server may return more than one chat message 
     # per call, resulting in multiple messages with the same timestamp. 
     # This too will be handled by the formatting script. 
-
-
 
     # Instantiate start time and number of checkpoints, which are used by both loops
     then = time.time()
@@ -207,3 +205,6 @@ def twitch_chat_scrape(nickname, token, channel, minutes, path = "./chat.log", n
 
     # Close the socket and end the connection to the Twitch server.
     socket.close()
+
+    # Shut down the logger.
+    logging.shutdown()
