@@ -125,22 +125,14 @@ def messages_per_second(df):
     # Find the total amount of minutes of video, rounded.
     total = round((date_range.max() - date_range.min()).seconds / 60)
 
+    print(f"Processing {total} minutes of chat messages...")
+
     for sec in date_range:
         
         try:
-            # .loc has few different functionalities, each
-            # discussed below.
-            sec_messages = df.loc[str(sec)]
-            
-            # If there are multiple observations for any given
-            # second, .loc will return a dataframe...
-            if type(sec_messages) == pd.DataFrame:
-                mes_per_sec.append(sec_messages.shape[0])
-            
-            # ...but if there is only 1 observation on that second,
-            # .loc will return a Series and length will be 1.
-            else:
-                mes_per_sec.append(1)
+            # Double brackets around .loc forces it to return a dataframe.            
+            # Append the length of the dataframe, i.e. number of messages.
+            mes_per_sec.append(df.loc[[str(sec)]].shape[0])
         
         # If the key is not found, then there are no messages for that second
         except KeyError:
@@ -150,6 +142,9 @@ def messages_per_second(df):
         delta = sec - date_range.min()
         if delta.seconds % 600 == 0 and delta.seconds != 0:
             print(f"{delta.components.hours * 60 + delta.components.minutes}",
-                f"out of {total} minutes of messages processed")
+                  f"out of {total} minutes of messages processed.")
+
+    print(f"{total} out of {total} minutes of messages processed.")
+    print("...All messages processed.")
 
     return pd.Series(data = mes_per_sec, index = date_range)
