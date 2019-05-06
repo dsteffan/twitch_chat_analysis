@@ -148,3 +148,17 @@ def messages_per_second(df):
     print("...All messages processed.")
 
     return pd.Series(data = mes_per_sec, index = date_range)
+
+
+
+# Function to remove all messages sent by the automated 
+# chat bot, as well as all commands sent to it
+def filter_bot_messages(df, bot_name):
+    
+    # Removing messages sent by the chat bot.
+    df = df[df["username"] != bot_name]
+    
+    # Commands issued to the chat bot begin with "!"
+    df = df[[not message.startswith("!") for message in df["message"]]]
+    
+    return df
