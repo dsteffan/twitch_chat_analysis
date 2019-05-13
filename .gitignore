@@ -6,3 +6,5 @@ code/.ipynb_checkpoints/ data/.ipynb_checkpoints/
 code/.ipynb_checkpoints/ data/.ipynb_checkpoints/
 code/.ipynb_checkpoints/
 twitch_oauth_token/
+assets/video/*
+__temp__.mp4
