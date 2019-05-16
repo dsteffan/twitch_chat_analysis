@@ -22,6 +22,8 @@ import pandas as pd
 import re
 from datetime import datetime
 
+
+
 # This function accepts a relative file path as an argument and returns a dataframe 
 # of formatted text with username, message, and channel, with a datetime object
 # as the index. 
@@ -66,7 +68,6 @@ def twitch_chat_format(path):
                 # not split and is just stripped instead.
                 username_message = msg.strip()
 
-            
             else:
                 # Just in the offchance the chat message contained three semicolons
                 # in a row, they are rejoined here and stripped of whitespace.
@@ -93,8 +94,6 @@ def twitch_chat_format(path):
             # logging messages or the intro messages when connecting to the IRC
             except AttributeError:
                 continue
-
-
 
     # Convert dictionary to a dataframe and set datetime object to the index.
     return pd.DataFrame(msg_dict).set_index("time")

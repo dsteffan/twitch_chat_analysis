@@ -29,7 +29,6 @@ def highlight_by_stdev(df, threshold = 4, roll = 5):
 
     z_score = _scale_data(df, roll)
 
-    # return (z_score >= threshold).astype(int)
     return (z_score >= threshold).astype(int)
 
 
@@ -123,6 +122,7 @@ def get_highlights_index(df, before_time = 15, after_time = 15, target_col = "hi
         # Append the start and end times as a tuple
         all_clips.append((start, end))
 
+        # Go to the next clip
         i += 1
         
     return all_clips

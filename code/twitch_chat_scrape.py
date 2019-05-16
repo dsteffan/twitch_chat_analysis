@@ -1,6 +1,6 @@
 ###
 #
-# Filename: twitch_chat_format.py
+# Filename: twitch_chat_scrape.py
 # Author: Derek Steffan
 # 
 # This script will monitor and record all the twitch chat messages for a 
@@ -105,7 +105,7 @@ def twitch_chat_scrape(nickname, token, channel, minutes, path = "./chat.log", n
     # execution can be interrupted by the user prematurely.
     try:
 
-        # If n_messages is None, then the if statement will evaluate to False 
+        # If n_messages is "None", then the if statement will evaluate to False 
         # and the 'while' loop will run. If n_messages is an int, then the 'for'
         # loop will run instead.
         if n_messages:
@@ -138,7 +138,8 @@ def twitch_chat_scrape(nickname, token, channel, minutes, path = "./chat.log", n
                     n_check += 1
 
                 
-
+        
+        # n_messages is "None"
         else:
 
             # Instantiate logging variable for the while loop
@@ -191,6 +192,8 @@ def twitch_chat_scrape(nickname, token, channel, minutes, path = "./chat.log", n
         # "End logging" message
         logging.info(f"RECORDING INTERRUPTED BY USER\n")
 
+
+
     # If the loop runs to completion, print out time and message data.
     else:
 
@@ -202,6 +205,8 @@ def twitch_chat_scrape(nickname, token, channel, minutes, path = "./chat.log", n
 
         # "End logging" message
         logging.info(f"END OF RECORDED CHAT MESSAGES FROM CHANNEL: {channel.upper()}\n")
+
+
 
     # Close the socket and end the connection to the Twitch server.
     socket.close()
